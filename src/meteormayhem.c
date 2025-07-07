@@ -1,8 +1,3 @@
-/**
- * \file            meteormayhem.c
- * \brief           MeteorMayhem source file
- */
-
 /*
  * Copyright (c) 2025 Ashkan Feyzollahi
  *
