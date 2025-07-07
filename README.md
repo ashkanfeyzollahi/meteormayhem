@@ -2,7 +2,7 @@
 
 ![screenshot](screenshot.png)
 
-<p align="center">Fly through space, while dodging and destroying meteors and trying to gain score!</p>
+<p align="center">Fly through space, while dodging and destroying meteors and trying to gain score! (Use arrow keys to move around, <kbd>q</kbd> to exit game and <kbd>e</kbd> to shoot rays)</p>
 <p align="center">
     <a href="#features">Features</a> |
     <a href="#compiling">Compiling</a> |
@@ -32,7 +32,7 @@ Report bugs to ashkanfeyzollahi@gmail.com.
 - [x] **Terminal Colors**: Use terminal colors if supported.
 - [x] **NerdFont Support**: Support *NerdFont* characters through *utf-8* encoding.
 - [x] **Firing Mechanism**: Allow players to fire rays when <kbd>e</kbd> pressed.
-- [ ] **Proper Memory Management**: Manage allocated memory safely.
+- [ ] **Prevent Memory Leaks And Game Crashes**: When window resizes, it sometimes may cause game crashes.
 
 ## Compiling
 
