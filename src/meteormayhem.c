@@ -34,7 +34,6 @@
 #include <time.h>
 
 
-/* MACROS */
 #define MAX(x, y)                 ((x) > (y) ? (x) : (y))
 #define MIN(x, y)                 ((x) < (y) ? (x) : (y))
 
