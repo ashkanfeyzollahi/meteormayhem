@@ -239,7 +239,6 @@ main(int argc, char *argv[]) {
         mvaddstr(player_y, player_x, player_sign);
         attroff(A_BOLD | COLOR_PAIR(1));
 
-        /* print shot ray */
         if (clock_start[2] != 0) {
             attron(COLOR_PAIR(4));
             for (int i = 0; i < player_y; i++) {
@@ -310,4 +309,3 @@ main(int argc, char *argv[]) {
 
     return EXIT_SUCCESS;
 }
-
