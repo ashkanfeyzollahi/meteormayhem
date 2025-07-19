@@ -33,6 +33,7 @@ Report bugs to ashkanfeyzollahi@gmail.com.
 - [x] **NerdFont Support**: Support *NerdFont* characters through *utf-8* encoding.
 - [x] **Firing Mechanism**: Allow players to fire rays when <kbd>e</kbd> pressed.
 - [ ] **TODO: Prevent Memory Leaks And Game Crashes**: When window resizes, it sometimes may cause game crashes.
+- [ ] **TODO: Add Difficulties/Do Speed Adjustments**
 
 ## Compiling
 
