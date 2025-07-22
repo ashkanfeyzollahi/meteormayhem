@@ -6,7 +6,9 @@
 <p align="center">
     <a href="#features">Features</a> |
     <a href="#compiling">Compiling</a> |
-    <a href="#acknowledgements">Acknowledgements</a>
+    <a href="#acknowledgements">Acknowledgements</a> |
+    <a href="CHANGELOG.md">CHANGELOG.md</a> |
+    <a href="TODO.md">TODO.md</a>
 </p>
 
 ```
@@ -29,11 +31,9 @@ Report bugs to ashkanfeyzollahi@gmail.com.
 
 ## Features
 
-- [x] **Terminal Colors**: Use terminal colors if supported.
-- [x] **NerdFont Support**: Support *NerdFont* characters through *utf-8* encoding.
-- [x] **Firing Mechanism**: Allow players to fire rays when <kbd>e</kbd> pressed.
-- [ ] **TODO: Prevent Memory Leaks And Game Crashes**: When window resizes, it sometimes may cause game crashes.
-- [ ] **TODO: Add Difficulties/Do Speed Adjustments**
+- **Terminal Colors**: Use terminal colors if supported.
+- **NerdFont Support**: Support *NerdFont* characters through *utf-8* encoding.
+- **Shooting Mechanism**: Allow players to shoot rays when <kbd>E</kbd> pressed.
 
 ## Compiling
 
