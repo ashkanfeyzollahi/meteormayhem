@@ -108,7 +108,7 @@ main(int argc, char *argv[]) {
 
     char * health_sign, * meteor_sign, * player_sign, * ray_sign, * rays_sign, * statistics, * statistics_format;
     double clock_start[4];
-    int health, key, * meteor_array, old_screen_columns, player_x, player_y, player_score, rand_meteor, rays, screen_columns, screen_rows, sizeof_meteor_array, statistics_x_offset;
+    int health, key = 0, * meteor_array, old_screen_columns, player_x, player_y, player_score, rand_meteor, rays, screen_columns, screen_rows, sizeof_meteor_array, statistics_x_offset;
 
     clock_start[0] = clock();
     clock_start[1] = clock();
@@ -174,10 +174,10 @@ main(int argc, char *argv[]) {
         if (sizeof_meteor_array != sizeof(int) * screen_columns) {
             sizeof_meteor_array = sizeof(int) * screen_columns;
             meteor_array = (int *) realloc(meteor_array, sizeof_meteor_array);
-
             if (old_screen_columns < screen_columns) {
-                memset(&meteor_array[old_screen_columns + 1], -1, sizeof_meteor_array - sizeof(int) * old_screen_columns);
+                memset(&meteor_array[old_screen_columns], -1, sizeof(int) * (screen_columns - old_screen_columns));
             }
+            old_screen_columns = screen_columns;
         }
 
         if (flags & 2) {
@@ -304,7 +304,7 @@ main(int argc, char *argv[]) {
     }
 
     endwin();
-
+    free(meteor_array);
     printf("\n ~ Gameover! ~\n\n  * Player Score: %d\n\n", player_score);
 
     return EXIT_SUCCESS;
