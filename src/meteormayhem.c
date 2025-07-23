@@ -53,7 +53,7 @@
 
 
 const char * argp_program_bug_address = "ashkanfeyzollahi@gmail.com";
-const char * argp_program_version = "version 0.1.1";
+const char * argp_program_version = "version 0.1.2";
 
 static int
 parse_opt(int key, char * arg,
