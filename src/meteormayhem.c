@@ -281,18 +281,22 @@ main(int argc, char *argv[]) {
                     break;
 
                 case KEY_UP:
+                case 'w':
                     player_y--;
                     break;
 
                 case KEY_DOWN:
+                case 's':
                     player_y++;
                     break;
 
                 case KEY_LEFT:
+                case 'a':
                     player_x--;
                     break;
 
                 case KEY_RIGHT:
+                case 'd':
                     player_x++;
                     break;
 
