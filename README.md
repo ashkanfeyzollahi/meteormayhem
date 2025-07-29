@@ -31,9 +31,56 @@ Report bugs to ashkanfeyzollahi@gmail.com.
 
 ## Features
 
-- **Terminal Colors**: Use terminal colors if supported.
-- **NerdFont Support**: Support *NerdFont* characters through *utf-8* encoding.
-- **Shooting Mechanism**: Allow players to shoot rays when <kbd>E</kbd> pressed.
+1. **Text-Based Interface:**
+
+   * Runs in the terminal using the `ncurses` library for display and input.
+   * Supports colored text and bold formatting.
+
+2. **Nerd Font and ASCII Support:**
+
+   * Option to use Unicode Nerd Font symbols or simple ASCII characters for all game elements (heart, meteor, player rocket, rays).
+   * Configurable via command-line flag (`--nerdfont` or `-n`).
+
+3. **Player Controls:**
+
+   * Move player character (rocket) using arrow keys or `WASD`.
+   * Fire rays upwards using the `E` key.
+
+4. **Gameplay Mechanics:**
+
+   * Meteors randomly spawn at the top of the screen and fall downwards.
+   * Player can shoot rays upwards to destroy meteors and gain points.
+   * If a meteor hits the player, the player loses health.
+   * Player starts with 100 health points and 5 rays (ammo).
+   * Rays decrease by one per shot.
+
+5. **Health and Ammunition Regeneration:**
+
+   * Every 30 seconds, the player regains 10 health points and 2 rays.
+
+6. **Score System:**
+
+   * Player earns 5 points for each meteor destroyed.
+
+7. **Dynamic Screen Handling:**
+
+   * Supports resizing the terminal window.
+   * Adjusts meteor tracking array accordingly.
+
+8. **Statistics Display:**
+
+   * Shows player health, number of rays left, and score at the bottom of the screen.
+   * Statistics visibility can be toggled via command-line option `--statistics visible|invisible`.
+
+9. **Game Over Condition:**
+
+   * Game ends when player health reaches zero or the player quits by pressing `q`.
+   * Displays final score after game ends.
+
+10. **Performance:**
+
+    * Updates meteor positions every 0.1 seconds.
+    * Spawns meteors randomly every 0.1 seconds.
 
 ## Compiling
 
