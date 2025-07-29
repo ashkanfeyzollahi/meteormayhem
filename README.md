@@ -84,6 +84,12 @@ Report bugs to ashkanfeyzollahi@gmail.com.
 
 ## Compiling
 
+### Dependencies
+
+* `ncurses`, preferably latest stable version.
+
+### Steps On Compiling
+
 Compiling the program is as easy as stealing a candy from a baby.
 
 1. Clone this repository
