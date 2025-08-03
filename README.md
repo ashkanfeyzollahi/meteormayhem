@@ -1,6 +1,11 @@
 # MeteorMayhem
 
 <p align="center">🚀 Fly through space, while dodging and destroying meteors and trying to gain score!</p>
+<p align="center">
+    <a href="#features">Features</a> -
+    <a href="#compiling">Compiling</a> -
+    <a href="#acknowledgements">Acknowledgements</a>
+</p>
 
 ![screenshot](screenshot.png)
 
