@@ -3,7 +3,7 @@
 ![screenshot](screenshot.png)
 
 <p align="center"><i>🚀 A fast-paced <strong>ncurses</strong> space game in your terminal</i>
-    <br><br>
+    <br>
     <img alt="GitHub License" src="https://img.shields.io/github/license/ashkanfeyzollahi/meteormayhem">
 </p>
 
