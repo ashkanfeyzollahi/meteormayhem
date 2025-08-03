@@ -1,14 +1,9 @@
-# MeteorMayhem
-
-<p align="center">🚀 Fly through space, while dodging and destroying meteors and trying to gain score!
-    <a href="#features">Features</a> -
-    <a href="#compiling">Compiling</a> -
-    <a href="#acknowledgements">Acknowledgements</a>
-</p>
+<h3 align="center">🚀 A fast-paced <strong>ncurses</strong> space game in your terminal
+</h3>
 
 ![screenshot](screenshot.png)
 
-**MeteorMayhem** is a fast-paced terminal shooting game where you dodge and destroy falling meteors. Control a rocket, shoot with precision, and survive as long as you can. Use strategy to manage your health and limited rays while aiming for the highest score. Simple controls, ASCII or NerdFont graphics, and real-time action make it a fun and lightweight console experience.
+**MeteorMayhem** is a fast-paced terminal space game where you dodge and destroy falling meteors. Control a rocket, shoot with precision, and survive as long as you can. Use strategy to manage your health and limited rays while aiming for the highest score. Simple controls, ASCII or NerdFont graphics, and real-time action make it a fun and lightweight console experience.
 
 ```
 Usage: meteormayhem [OPTION...]
