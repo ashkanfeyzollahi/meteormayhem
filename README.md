@@ -1,4 +1,6 @@
-<h3 align="center">🚀 Fly through space, while dodging and destroying meteors and trying to gain score!</h3>
+# MeteorMayhem
+
+<p align="center">🚀 Fly through space, while dodging and destroying meteors and trying to gain score!</p>
 
 ![screenshot](screenshot.png)
 
