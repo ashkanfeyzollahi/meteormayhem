@@ -11,6 +11,8 @@
     <a href="TODO.md">TODO.md</a>
 </p>
 
+**MeteorMayhem** is a fast-paced terminal shooting game where you dodge and destroy falling meteors. Control a rocket, shoot with precision, and survive as long as you can. Use strategy to manage your health and limited rays while aiming for the highest score. Simple controls, ASCII or NerdFont graphics, and real-time action make it a fun and lightweight console experience.
+
 ```
 Usage: meteormayhem [OPTION...]
 
