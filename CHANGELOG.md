@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.2.3
+
+- chore: add short version of valid arguments for difficulty and statistics option
+
 ## Version 0.2.2
 
 - feat: add difficulties
