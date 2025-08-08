@@ -51,26 +51,41 @@
 #define ASCII_STATISTICS_FORMAT   " health: %d > rays: %d > score: %d "
 #define NF_STATISTICS_FORMAT      " \xf3\xb0\x8b\x91 %d \xee\xaa\xb6 \xf3\xb1\x90\x8b %d \xee\xaa\xb6 \xf3\xb1\x89\xbe  %d "
 
+typedef struct {
+    char difficulty;
+    int flags;
+} meteormayhem_args;
 
 const char * argp_program_bug_address = "ashkanfeyzollahi@gmail.com";
-const char * argp_program_version = "version 0.1.2";
+const char * argp_program_version = "version 0.2.2";
+
 
 static int
 parse_opt(int key, char * arg,
       struct argp_state * state) {
-    char * flags = state->input;
+    meteormayhem_args * mmargs = (meteormayhem_args *) state->input;
 
     switch (key) {
+        case 'd':
+            if (arg == NULL) {}
+            else if (strcmp(arg, "easy") == 0 || strcmp(arg, "medium") == 0 || strcmp(arg, "hard") == 0) {
+                mmargs->difficulty = arg[0];
+            } else {
+                argp_failure(state, 1, 0, "invalid argument `%s` for `-d` or `--difficulty`\n"
+                    "valid arguments are:\n `easy`, `medium`, `hard`", arg);
+            }
+            break;
+
         case 'n':
-            *flags = (*flags) | 1;
+            mmargs->flags = mmargs->flags | 1;
             break;
 
         case 's':
             if (arg == NULL || strcmp(arg, "visible") == 0) {
-                *flags |= 2;
+                mmargs->flags |= 2;
             } else if (strcmp(arg, "invisible") == 0) {
-                if ((*flags) & 2) {
-                    *flags ^= 2;
+                if (mmargs->flags & 2) {
+                    mmargs->flags ^= 2;
                 }
             } else {
                 argp_failure(state, 1, 0, "invalid argument `%s` for `-s` or `--statistics`\n"
@@ -89,26 +104,30 @@ parse_opt(int key, char * arg,
 int
 main(int argc, char *argv[]) {
     struct argp_option options[] = {
-        { 0,            0,   0,           0,                   "User Interface Options:", 1 },
-        { "nerdfont",   'n', 0,           0,                   "Prefer using NerdFont with utf-8 encoding" },
-        { "statistics", 's', "VISIBLITY", OPTION_ARG_OPTIONAL, "Change player statistics' VISIBLITY" },
-        { 0,             0,  0,           0,                   "Information Options:",    -1 },
+        { 0,            0,   0,            0,                   "Gameplay Options:", 2 },
+        { "difficulty", 'd', "DIFFICULTY", 0,                   "Set game difficulty to DIFFICULTY" },
+        { 0,            0,   0,            0,                   "User Interface Options:", 1 },
+        { "nerdfont",   'n', 0,            0,                   "Prefer using NerdFont with utf-8 encoding" },
+        { "statistics", 's', "VISIBLITY",  OPTION_ARG_OPTIONAL, "Change player statistics' VISIBLITY" },
+        { 0,             0,  0,            0,                   "Information Options:",    -1 },
         { 0 }
     };
 
     struct argp argp = { options, parse_opt };
 
-    char flags = 2;
+    meteormayhem_args * mmargs = (meteormayhem_args*) malloc(sizeof(meteormayhem_args));
+    mmargs->difficulty = 0;
+    mmargs->flags = 2;
 
-    argp_parse(&argp, argc, argv, 0, 0, &flags);
+    argp_parse(&argp, argc, argv, 0, 0, mmargs);
 
-    if (flags & 1) {
+    if (mmargs->flags & 1) {
         setlocale(LC_ALL, "");
     }
 
     char * health_sign, * meteor_sign, * player_sign, * ray_sign, * rays_sign, * statistics, * statistics_format;
     double clock_start[4];
-    int health, key = 0, * meteor_array, old_screen_columns, player_x, player_y, player_score, rand_meteor, rays, screen_columns, screen_rows, sizeof_meteor_array, statistics_x_offset;
+    int gameplay_speed = 4, health, key = 0, * meteor_array, old_screen_columns, player_x, player_y, player_score, rand_meteor, rays, screen_columns, screen_rows, sizeof_meteor_array, statistics_x_offset;
 
     clock_start[0] = clock();
     clock_start[1] = clock();
@@ -118,7 +137,14 @@ main(int argc, char *argv[]) {
     player_score = 0;
     rays = 5;
 
-    if (flags & 1) {
+    if (mmargs->difficulty == 'e') {
+        gameplay_speed = 1;
+    }
+    else if (mmargs->difficulty == 'h') {
+        gameplay_speed = 8;
+    }
+
+    if (mmargs->flags & 1) {
         health_sign = NF_HEART;
         meteor_sign = NF_METEOR;
         player_sign = NF_ROCKET;
@@ -180,7 +206,7 @@ main(int argc, char *argv[]) {
             old_screen_columns = screen_columns;
         }
 
-        if (flags & 2) {
+        if (mmargs->flags & 2) {
             --screen_rows;
 
             attron(COLOR_PAIR(3));
@@ -196,7 +222,7 @@ main(int argc, char *argv[]) {
             attroff(COLOR_PAIR(3));
         }
 
-        if ((clock() - clock_start[0]) / CLOCKS_PER_SEC >= 0.1) {
+        if ((clock() - clock_start[0]) / CLOCKS_PER_SEC >= 0.2 / gameplay_speed) {
             for (int i = 0; i < screen_columns; i++) {
                 if (meteor_array[i] <= -1) {
                     continue;
@@ -212,7 +238,7 @@ main(int argc, char *argv[]) {
             clock_start[0] = clock();
         }
 
-        if ((clock() - clock_start[1]) / CLOCKS_PER_SEC >= 0.1) {
+        if ((clock() - clock_start[1]) / CLOCKS_PER_SEC >= 0.2 / gameplay_speed) {
             clock_start[1] = clock();
 
             rand_meteor = rand() % screen_columns;
