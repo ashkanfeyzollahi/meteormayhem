@@ -16,6 +16,9 @@ Usage: meteormayhem [OPTION...]
   -n, --nerdfont             Prefer using NerdFont with utf-8 encoding
   -s, --statistics[=VISIBLITY]   Change player statistics' VISIBLITY
 
+ Gameplay Options:
+  -d, --difficulty=DIFFICULTY   Set game difficulty to DIFFICULTY
+
  Information Options:
   -?, --help                 Give this help list
       --usage                Give a short usage message
@@ -71,4 +74,3 @@ Thanks to these resources which taught me a lot:
 
 - [NCURSES Programming HOWTO (book)](https://tldp.org/HOWTO/NCURSES-Programming-HOWTO/)
 - [Step-By-Step Into Argp (book)](http://nongnu.askapache.com/argpbook/step-by-step-into-argp.pdf)
-
