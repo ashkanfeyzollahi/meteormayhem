@@ -57,7 +57,7 @@ typedef struct {
 } meteormayhem_args;
 
 const char * argp_program_bug_address = "ashkanfeyzollahi@gmail.com";
-const char * argp_program_version = "version 0.2.2";
+const char * argp_program_version = "version 0.2.3";
 
 
 static int
@@ -68,11 +68,12 @@ parse_opt(int key, char * arg,
     switch (key) {
         case 'd':
             if (arg == NULL) {}
-            else if (strcmp(arg, "easy") == 0 || strcmp(arg, "medium") == 0 || strcmp(arg, "hard") == 0) {
+            else if (strcmp(arg, "e") == 0 || strcmp(arg, "m") == 0 || strcmp(arg, "h") == 0 ||
+                strcmp(arg, "easy") == 0 || strcmp(arg, "medium") == 0 || strcmp(arg, "hard") == 0) {
                 mmargs->difficulty = arg[0];
             } else {
                 argp_failure(state, 1, 0, "invalid argument `%s` for `-d` or `--difficulty`\n"
-                    "valid arguments are:\n `easy`, `medium`, `hard`", arg);
+                    "valid arguments are:\n `e`, `easy`, `m`, `medium`, `h`, `hard`", arg);
             }
             break;
 
@@ -81,15 +82,15 @@ parse_opt(int key, char * arg,
             break;
 
         case 's':
-            if (arg == NULL || strcmp(arg, "visible") == 0) {
+            if (arg == NULL || strcmp(arg, "v") == 0 || strcmp(arg, "visible") == 0) {
                 mmargs->flags |= 2;
-            } else if (strcmp(arg, "invisible") == 0) {
+            } else if (strcmp(arg, "i") == 0 || strcmp(arg, "invisible") == 0) {
                 if (mmargs->flags & 2) {
                     mmargs->flags ^= 2;
                 }
             } else {
                 argp_failure(state, 1, 0, "invalid argument `%s` for `-s` or `--statistics`\n"
-                    "valid arguments are:\n`visible`, `invisible`", arg);
+                    "valid arguments are:\n`v`, `visible`, `i`, `invisible`", arg);
             }
 
             break;
