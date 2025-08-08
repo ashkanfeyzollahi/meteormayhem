@@ -1,5 +1,9 @@
 # Changelog
 
+## Version 0.2.2
+
+- feat: add difficulties
+
 ## Version 0.1.2
 
 - feat: allow player to move using wasd keys
