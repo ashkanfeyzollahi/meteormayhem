@@ -1,4 +1,4 @@
-CFLAG=-lncurses
+CFLAG=-lncursesw
 OUTPUT=bin/meteormayhem
 SOURCE=src/*.c
 
